@@ -18,7 +18,7 @@ var substringMatcher = function(strs) {
     if (matches.length == 1) {
       // console.log('Found it')
       $('#agenda-title').text(leaderAgenda[matches[0]]) 
-      $('#leader-agenda .agenda-text').text(leaderAgenda[matches[0]])
+      $('#leader-agenda .agenda-text').text(agendaDescription[leaderAgenda[matches[0]]])
     }
     else
     {
