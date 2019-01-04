@@ -1,3 +1,14 @@
+function leaderAgendaFill(a_name, a_title, a_text) {
+  $('#leader-name').text(a_name)
+  $('#leader-agenda').text("Agenda: " + a_title) 
+  $('#leader-agenda-text').text(a_text)
+}
+
+function hiddenAgendaFill(a_title, a_text) {
+  $('#hidden-agenda').text("Agenda: " + a_title)
+  $('#hidden-agenda-text').text(a_text)
+}
+
 var substringMatcher = function(strs) {
   return function findMatches(q, cb) {
     var matches, substringRegex
@@ -16,14 +27,11 @@ var substringMatcher = function(strs) {
       }
     });
     if (matches.length == 1) {
-      // console.log('Found it')
-      $('#agenda-title').text(leaderAgenda[matches[0]]) 
-      $('#leader-agenda .agenda-text').text(agendaDescription[leaderAgenda[matches[0]]])
+      leaderAgendaFill(matches[0], leaderAgenda[matches[0]], agendaDescription[leaderAgenda[matches[0]]])
     }
     else
     {
-      $('#agenda-title').text('')
-      $('#leader-agenda .agenda-text').text('')
+      leaderAgendaFill('', '','')
     }
 
     cb(matches)
@@ -220,77 +228,82 @@ var agendaDescription = {
     who have capitulated or who have never gone to war.`
 }
 
-var hiddenAgendas = {
-  'Airpower': `Tries to build up air power. Admires civilizations with 
-    greater air power. Dislikes civilizations with weaker air power.`,
-  'Barbarian Ally': `Sympathizes with the barbarians. Does not like 
-    civilizations that destroy barbarian outposts.`,
-  'City-State Ally': `Likes civilizations that aren't competing for the 
+var hiddenAgendas = [
+  ['Airpower', `Tries to build up air power. Admires civilizations with 
+    greater air power. Dislikes civilizations with weaker air power.`],
+  ['Barbarian Ally', `Sympathizes with the barbarians. Does not like 
+    civilizations that destroy barbarian outposts.`],
+  ['City-State Ally', `Likes civilizations that aren't competing for the 
     same city-state allegiance. Dislikes civilizations that are directly 
-    competing for city-state allegiance.`,
-  'City-State Protector': `Emphasizes protectorate wars. Admires 
+    competing for city-state allegiance.`],
+  ['City-State Protector', `Emphasizes protectorate wars. Admires 
     civilizations that start protectorate wars. Dislikes civilizations 
-    that attack city-states.`,
-  'Civilized': `Hates barbarians. Likes civilizations that clear out 
+    that attack city-states.`],
+  ['Civilized', `Hates barbarians. Likes civilizations that clear out 
     barbarian outposts. Does not like civilizations that ignore 
-    barbarian outposts.`,
-  'Cultured': `Tries to build up Culture, and likes civilizations that also 
-    focus on Culture.`,
-  'Darwinist': `Believes in survival of the fittest. Likes civilizations 
-    that are at war.`,
-  'Devout': `Tries to build up Faith, and likes civilizations that also 
-    focus on Faith.`,
-  'Disciplined': `Likes leaders that build wonders. Also, likes leaders 
+    barbarian outposts.`],
+  ['Cultured', `Tries to build up Culture, and likes civilizations that also 
+    focus on Culture.`],
+  ['Darwinist', `Believes in survival of the fittest. Likes civilizations 
+    that are at war.`],
+  ['Devout', `Tries to build up Faith, and likes civilizations that also 
+    focus on Faith.`],
+  ['Disciplined', `Likes leaders that build wonders. Also, likes leaders 
     that have high production or those that have high scientific output. 
-    Dislikes those that have fewer wonders than they do.`,
-  'Environmentalist': `Builds National Parks, doesn't clear features, 
+    Dislikes those that have fewer wonders than they do.`],
+  ['Environmentalist', `Builds National Parks, doesn't clear features, 
     plants forests. Likes civilizations that plant forests or found 
-    National Parks. Dislikes civilizations that clear features.`,
-  'Exploitative': `Clears all features and improves all possible tiles. 
+    National Parks. Dislikes civilizations that clear features.`],
+  ['Exploitative', `Clears all features and improves all possible tiles. 
     Likes civilizations with a high percentage of improved tiles. 
     Dislikes civilizations with a low percentage of improved tiles 
-    or that found National Parks.`,
-  'Explorer': `Tries to explore the map, and likes civilizations that have 
+    or that found National Parks.`],
+  ['Explorer', `Tries to explore the map, and likes civilizations that have 
     explored less of the map than itself and dislikes civilizations that 
-    have explored more of the map than itself.`,
-  'Fun-Loving': `Tries to make citizens in each city as happy as possible. 
-    Likes civilizations that also develop in this fashion.`,
-  'Gossip': 'Wants to know everything about everyone.',
-  'Great Person Advocate': `Likes civilizations who are not competing for 
+    have explored more of the map than itself.`],
+  ['Fun-Loving', `Tries to make citizens in each city as happy as possible. 
+    Likes civilizations that also develop in this fashion.`],
+  ['Gossip', 'Wants to know everything about everyone.'],
+  ['Great Person Advocate', `Likes civilizations who are not competing for 
     Great People and will recruit Great People whenever possible. 
-    Dislikes losing a Great Person to another civilization.`,
-  'Heavy Industry': `Tries to build up industry, and likes civilizations 
-    that also focus on Production.`,
-  'Ideologue': `Favors civilizations with the same type of government, 
+    Dislikes losing a Great Person to another civilization.`],
+  ['Heavy Industry', `Tries to build up industry, and likes civilizations 
+    that also focus on Production.`],
+  ['Ideologue', `Favors civilizations with the same type of government, 
     dislikes civilizations that have different governments, and really 
     dislikes civilizations with different governments of the same era 
-    as its own.`,
-  'Money Grubber': `Tries to have the highest possible Gold per turn 
-    income. Respects other high income civilizations.`,
-  'Naturalist': `Tries to find all natural wonders. Likes civilizations 
+    as its own.`],
+  ['Money Grubber', `Tries to have the highest possible Gold per turn 
+    income. Respects other high income civilizations.`]
+  ['Naturalist', `Tries to find all natural wonders. Likes civilizations 
     that keep Woods and Rainforests unchopped, and those that establish 
-    National Parks.`,
-  'Nuke Happy': `Has no hesitation to use nuclear weapons. Respects other 
-    civilizations that project strength with nuclear weapons.`,
-  'Paranoid': `Likes civilizations who pose no threat. Dislikes 
-    civilizations with strong militaries or ones with nearby cities.`,
-  'Populous': `Tries to have the highest overall population. Respects 
-    other high population civilizations.`,
-  'Standing Army': `Always tries to keep a large standing army. Respects 
-    other civilizations with large armies.`,
-  'Sycophant': 'Impressed by any civilization that earns a Golden Age.',
-  'Sympathizer': 'Feels bad for those going through Dark Ages.',
-  'Technophile': `Favors Science development. Dislikes civs who are 
-    behind technologically.`,
-  'Wonder Obsessed': `Likes civilizations not competing for wonders, 
+    National Parks.`],
+  ['Nuke Happy', `Has no hesitation to use nuclear weapons. Respects other 
+    civilizations that project strength with nuclear weapons.`],
+  ['Paranoid', `Likes civilizations who pose no threat. Dislikes 
+    civilizations with strong militaries or ones with nearby cities.`],
+  ['Populous', `Tries to have the highest overall population. Respects 
+    other high population civilizations.`],
+  ['Standing Army', `Always tries to keep a large standing army. Respects 
+    other civilizations with large armies.`],
+  ['Sycophant', 'Impressed by any civilization that earns a Golden Age.'],
+  ['Sympathizer', 'Feels bad for those going through Dark Ages.'],
+  ['Technophile', `Favors Science development. Dislikes civs who are 
+    behind technologically.`],
+  ['Wonder Obsessed', `Likes civilizations not competing for wonders, 
     and builds wonders whenever possible. Dislikes losing a wonder to 
-    another civilization.`
-}
+    another civilization.`]
+]
+$('#hidden-agenda-btn').click(function() {
+  var rand = Math.floor(Math.random() * hiddenAgendas.length)
+  hiddenAgendaFill(hiddenAgendas[rand][0], hiddenAgendas[rand][1])
+})
 
 $('.typeahead').on('typeahead:selected', function(evt, item) {
-  $('#agenda-title').text(leaderAgenda[item])
-  $('#leader-agenda .agenda-text').text(agendaDescription[leaderAgenda[item]])
+  leaderAgendaFill(item, leaderAgenda[item], agendaDescription[leaderAgenda[item]])
 })
+
+// $('#hidden-agenda-btn :input').click(getRandomAgenda())
 
 $('#civ-leaders .typeahead').typeahead({
   hint: true,

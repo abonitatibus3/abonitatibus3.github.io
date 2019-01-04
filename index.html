@@ -21,16 +21,55 @@
         <div class="col-4">
           <div id="civ-leaders" class="form-group">
             <label for="leader-name">Choose your leader:</label>
-            <input id="leader-name" class="form-control typeahead" type="text" placeholder="Bobson Dugnutt">
+            <input id="leader-name-in" class="form-control typeahead" type="text" placeholder="Bobson Dugnutt">
             <small id="leaderHelp" class="form-text text-muted">Start typing the name of your leader above.</small>
           </div>
         </div>
       </div>
       <div class="row justify-content-center">
         <div class="col-8">
-          <div id="leader-agenda">
-            <label id="agenda-title" for="agenda-text"></label>
-            <p class="agenda-text"></p>
+          <div class="card">
+            <div class="card-body bg-dark">
+              <h5 class="card-title text-light" id="leader-name"></h5>
+              <h6 class="card-subtitle mb-2 text-light" id="leader-agenda"></h6>
+              <p class="card-text text-light" id="leader-agenda-text"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <button type="button" class="btn btn-secondary" id="hidden-agenda-btn">Give me a random hidden agenda!</button>
+      </div>
+      <!-- <div class="row justify-content-center">
+        <div class="py-5 text-center">
+          <h2>Hidden Agenda Randomizer</h2>
+          <h5>How would you like your hidden agenda to be selected?</h5>
+        </div>
+      </div> -->
+      <!-- <div class="row justify-content-center">
+        <div class="form-group" id="hidden-form">
+          <div class="btn-group btn-group-toggle" data-toggle="buttons" id="hidden-agenda-btn">
+            <label class="btn btn-secondary">
+              <input type="radio" name="options" id="leader-matters" autocomplete="off">Take My Leader Into Account
+            </label>
+            <label class="btn btn-secondary active">
+              <input type="radio" name="options" id="completely-random" autocomplete="off">Completely Random!
+            </label>
+          </div>
+          <div class="justify-content-center">
+            <small class="form-text text-muted justify-content-center">To re-randomize, simply click the button again.
+            </small>
+          </div>
+        </div>
+      </div> -->
+      <div class="row justify-content-center">
+        <div class="col-8">
+          <div class="card">
+            <div class="card-body bg-dark">
+              <!-- <h5 class="card-title text-white" id="-name"></h5> -->
+              <h6 class="card-subtitle mb-2 text-light" id="hidden-agenda"></h6>
+              <p class="card-text text-light" id="hidden-agenda-text"></p>
+            </div>
           </div>
         </div>
       </div>
