@@ -294,9 +294,82 @@ var hiddenAgendas = [
     and builds wonders whenever possible. Dislikes losing a wonder to 
     another civilization.`]
 ]
+
+var hiddenCount = []
+
+for (var i = 0; i < hiddenAgendas.length; i++)
+{
+  hiddenCount.push(i)
+}
+
+console.log(hiddenCount)
+
+var specialAgendaList = {
+  'Theodore Roosevelt': [[9], hiddenCount, hiddenCount],
+  'Catherine de Medici': [
+    [13],
+    [13],
+    [13],
+    hiddenCount,
+    hiddenCount,
+    hiddenCount,
+    hiddenCount,
+    hiddenCount,
+    hiddenCount,
+    hiddenCount,
+    hiddenCount,
+    hiddenCount,
+    hiddenCount,
+    hiddenCount,
+    hiddenCount,
+    hiddenCount,
+    hiddenCount,
+    hiddenCount,
+    hiddenCount,
+    hiddenCount
+    ],
+  'Gandhi': [[18], [18], [18], [18], [18], [18], [18], [20], [20], hiddenCount],
+  'Gorgo, Peter, Philip II': [[22], hiddenCount, hiddenCount, hiddenCount, hiddenCount,
+    hiddenCount, hiddenCount, hiddenCount, hiddenCount, hiddenCount],
+  'Genghis Khan, Lautaro': [[23], hiddenCount, hiddenCount, hiddenCount, hiddenCount,
+    hiddenCount, hiddenCount, hiddenCount, hiddenCount, hiddenCount]
+}
+
 $('#hidden-agenda-btn').click(function() {
-  var rand = Math.floor(Math.random() * hiddenAgendas.length)
-  hiddenAgendaFill(hiddenAgendas[rand][0], hiddenAgendas[rand][1])
+  var agenda_list
+  var name = $('#leader-name').text()
+  if (name === '')
+  {
+    agenda_list = hiddenCount
+  }
+  else if (name === 'Theodore Roosevelt')
+  {
+    agenda_list = specialAgendaList[name][Math.ceil(Math.random() * 3) - 1]
+  }
+  else if (name === 'Catherine de Medici')
+  {
+    agenda_list = specialAgendaList[name][Math.ceil(Math.random() * 20) - 1]
+  }
+  else if (name === 'Gandhi')
+  {
+    agenda_list = specialAgendaList[name][Math.ceil(Math.random() * 10) - 1]
+  }
+  else if (name === 'Gorgo' || name === 'Peter' || name === 'Philip II')
+  {
+    agenda_list = specialAgendaList['Gorgo, Peter, Philip II'][Math.ceil(Math.random() * 10) - 1]
+  }
+  else if (name === 'Genghis Khan' || name === 'Lautaro')
+  {
+    agenda_list = specialAgendaList['Genghis Khan, Lautaro'][Math.ceil(Math.random() * 10) - 1]
+  }
+  else
+  {
+    agenda_list = hiddenCount
+  }
+  console.log(agenda_list)
+  var rand = Math.ceil(Math.random() * agenda_list.length) - 1
+  console.log(rand)
+  hiddenAgendaFill(hiddenAgendas[agenda_list[rand]][0], hiddenAgendas[agenda_list[rand]][1])
 })
 
 $('.typeahead').on('typeahead:selected', function(evt, item) {
