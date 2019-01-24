@@ -9,6 +9,10 @@ function hiddenAgendaFill(a_title, a_text) {
   $('#hidden-agenda-text').text(a_text)
 }
 
+function randomLeaderFill(name) {
+  $('#random-leader-name').text(name)
+}
+
 var substringMatcher = function(strs) {
   return function findMatches(q, cb) {
     var matches, substringRegex
@@ -335,6 +339,27 @@ var specialAgendaList = {
     hiddenCount, hiddenCount, hiddenCount, hiddenCount, hiddenCount]
 }
 
+$(document).ready(function() {
+  $.each(leaders, function() {
+    // if (this != '')
+    // {
+    var button = `<label class="btn btn-outline-danger">
+              <input type="checkbox" checked autocomplete="off">` + this +'</label>'
+    $('#leader-buttons').append(button)
+    // }
+  })
+})
+
+$('#random-leader-select-btn').click(function() {
+  var leaderPossibility = []
+  $('#leader-buttons .active').each(function() {
+    leaderPossibility.push($(this).text().substring(1).trim())
+  })
+  console.log(leaderPossibility)
+  randomLeaderFill(leaderPossibility[Math.floor(Math.random() * leaderPossibility.length)])
+})
+
+
 $('#hidden-agenda-btn').click(function() {
   var agenda_list
   var name = $('#leader-name').text()
@@ -366,17 +391,15 @@ $('#hidden-agenda-btn').click(function() {
   {
     agenda_list = hiddenCount
   }
-  console.log(agenda_list)
+  // console.log(agenda_list)
   var rand = Math.ceil(Math.random() * agenda_list.length) - 1
-  console.log(rand)
+  // console.log(rand)
   hiddenAgendaFill(hiddenAgendas[agenda_list[rand]][0], hiddenAgendas[agenda_list[rand]][1])
 })
 
 $('.typeahead').on('typeahead:selected', function(evt, item) {
   leaderAgendaFill(item, leaderAgenda[item], agendaDescription[leaderAgenda[item]])
 })
-
-// $('#hidden-agenda-btn :input').click(getRandomAgenda())
 
 $('#civ-leaders .typeahead').typeahead({
   hint: true,

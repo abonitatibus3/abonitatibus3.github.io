@@ -8,67 +8,129 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="typeaheadjs.css">
-    <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+    <link rel="stylesheet" type="text/css" href="catch-all.css">
 
     <title>Civ 6 Agenda Picker</title>
   </head>
   <body class="bg-light">
     <div class="container">
-      <div class="py-5 text-center">
-        <h2>Agenda Picker</h2>
-      </div>
-      <div class="row justify-content-center">
-        <div class="col-4">
-          <div id="civ-leaders" class="form-group">
-            <label for="leader-name">Choose your leader:</label>
-            <input id="leader-name-in" class="form-control typeahead" type="text" placeholder="Bobson Dugnutt">
-            <small id="leaderHelp" class="form-text text-muted">Start typing the name of your leader above.</small>
+      <!-- Leader Randomizer -->
+      <div>
+        <div class="py-5 text-center">
+          <h2>Leader Randomizer</h2>
+        </div>
+        <div class="row justify-content-center">
+          <div id="leader-buttons"class="btn-group-toggle" data-toggle="buttons">
           </div>
         </div>
+        <div class="row justify-content-center">
+          <button type="button" class="btn btn-secondary" id="random-leader-select-btn">Pick a leader for me!</button>
+        </div>
+        <div class="row justify-content-center">
+          <label id="random-leader-name"></label>
+        </div>
       </div>
-      <div class="row justify-content-center">
-        <div class="col-8">
-          <div class="card">
-            <div class="card-body bg-dark">
-              <h5 class="card-title text-light" id="leader-name"></h5>
-              <h6 class="card-subtitle mb-2 text-light" id="leader-agenda"></h6>
-              <p class="card-text text-light" id="leader-agenda-text"></p>
+          <!-- <div class="btn-group btn-group-toggle btn-group-sm btn-group-justified" role="group" data-toggle="buttons">
+            <div class="btn-group-justified">
+              <label class="btn btn-secondary active">
+                <input type="checkbox" checked autocomplete="off"> Alexander
+              </label>
+              <label class="btn btn-secondary active">
+                <input type="checkbox" checked autocomplete="off"> Amanitore
+              </label>
+              <label class="btn btn-secondary active">
+                <input type="checkbox" checked autocomplete="off"> Catherine de Medici
+              </label>
+              <label class="btn btn-secondary active">
+                <input type="checkbox" checked autocomplete="off"> Chandragupta
+              </label>
+              <label class="btn btn-secondary active">
+                <input type="checkbox" checked autocomplete="off"> Cleopatra
+              </label>
+              <label class="btn btn-secondary active">
+                <input type="checkbox" checked autocomplete="off"> Cyrus
+              </label>
+              <label class="btn btn-secondary active">
+                <input type="checkbox" checked autocomplete="off"> Frederick Barbarossa
+              </label>
+              <label class="btn btn-secondary active">
+                <input type="checkbox" checked autocomplete="off"> Gandhi
+              </label>
+            </div>
+            <div class="btn-group-justified">
+              <label class="btn btn-secondary active">
+                <input type="checkbox" checked autocomplete="off"> Alexander
+              </label>
+              <label class="btn btn-secondary active">
+                <input type="checkbox" checked autocomplete="off"> Amanitore
+              </label>
+              <label class="btn btn-secondary active">
+                <input type="checkbox" checked autocomplete="off"> Catherine de Medici
+              </label>
+              <label class="btn btn-secondary active">
+                <input type="checkbox" checked autocomplete="off"> Chandragupta
+              </label>
+              <label class="btn btn-secondary active">
+                <input type="checkbox" checked autocomplete="off"> Cleopatra
+              </label>
+              <label class="btn btn-secondary active">
+                <input type="checkbox" checked autocomplete="off"> Cyrus
+              </label>
+              <label class="btn btn-secondary active">
+                <input type="checkbox" checked autocomplete="off"> Frederick Barbarossa
+              </label>
+              <label class="btn btn-secondary active">
+                <input type="checkbox" checked autocomplete="off"> Gandhi
+              </label>
+            </div>
+          </div> -->
+          <!-- <div class="btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-secondary active">
+              <input type="checkbox" checked autocomplete="off"> Alexander
+            </label>
+            <label class="btn btn-secondary active">
+              <input type="checkbox" checked autocomplete="off"> Alexander
+            </label>
+          </div> -->
+
+      <!-- Agenda Picker by Leader Name -->
+      <div> 
+        <div class="py-5 text-center">
+          <h2>Agenda Picker</h2>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-4">
+            <div id="civ-leaders" class="form-group">
+              <label for="leader-name">Choose your leader:</label>
+              <input id="leader-name-in" class="form-control typeahead" type="text" placeholder="Bobson Dugnutt">
+              <small id="leaderHelp" class="form-text text-muted">Start typing the name of your leader above.</small>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-8">
+            <div class="card">
+              <div class="card-body bg-dark">
+                <h5 class="card-title text-light" id="leader-name"></h5>
+                <h6 class="card-subtitle mb-2 text-light" id="leader-agenda"></h6>
+                <p class="card-text text-light" id="leader-agenda-text"></p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="row justify-content-center">
-        <button type="button" class="btn btn-secondary" id="hidden-agenda-btn">Give me a random hidden agenda!</button>
-      </div>
-      <!-- <div class="row justify-content-center">
-        <div class="py-5 text-center">
-          <h2>Hidden Agenda Randomizer</h2>
-          <h5>How would you like your hidden agenda to be selected?</h5>
+      <!-- Random Agenda Picker -->
+      <div>
+        <div class="row justify-content-center">
+          <button type="button" class="btn btn-secondary" id="hidden-agenda-btn">Give me a random hidden agenda!</button>
         </div>
-      </div> -->
-      <!-- <div class="row justify-content-center">
-        <div class="form-group" id="hidden-form">
-          <div class="btn-group btn-group-toggle" data-toggle="buttons" id="hidden-agenda-btn">
-            <label class="btn btn-secondary">
-              <input type="radio" name="options" id="leader-matters" autocomplete="off">Take My Leader Into Account
-            </label>
-            <label class="btn btn-secondary active">
-              <input type="radio" name="options" id="completely-random" autocomplete="off">Completely Random!
-            </label>
-          </div>
-          <div class="justify-content-center">
-            <small class="form-text text-muted justify-content-center">To re-randomize, simply click the button again.
-            </small>
-          </div>
-        </div>
-      </div> -->
-      <div class="row justify-content-center">
-        <div class="col-8">
-          <div class="card">
-            <div class="card-body bg-dark">
-              <!-- <h5 class="card-title text-white" id="-name"></h5> -->
-              <h6 class="card-subtitle mb-2 text-light" id="hidden-agenda"></h6>
-              <p class="card-text text-light" id="hidden-agenda-text"></p>
+        <div class="row justify-content-center">
+          <div class="col-8">
+            <div class="card">
+              <div class="card-body bg-dark">
+                <h6 class="card-subtitle mb-2 text-light" id="hidden-agenda"></h6>
+                <p class="card-text text-light" id="hidden-agenda-text"></p>
+              </div>
             </div>
           </div>
         </div>
