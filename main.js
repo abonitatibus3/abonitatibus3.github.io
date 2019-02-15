@@ -61,7 +61,6 @@ var leaders = [
   'Jayavarman VII',
   'John Curtin',
   'Lautaro',
-  'Matthias Corvinus',
   'Montezuma',
   'Mvemba a Nzinga',
   'Pedro II',
@@ -79,7 +78,14 @@ var leaders = [
   'Tomyris',
   'Trajan',
   'Victoria',
-  'Wilhelmina'
+  'Wilhelmina',
+  'Eleanor of Aquitane',
+  'Kristina',
+  'Wilfrid Laurier',
+  'Kupe',
+  'Mansa Musa',
+  'Matthias Corvinus',
+  'Dido'
   ]
 
 var leaderAgenda = {
@@ -111,7 +117,6 @@ var leaderAgenda = {
   'Gandhi': 'Peacekeeper',
   'John Curtin': 'Perpetually on Guard',
   'Cleopatra': 'Queen of the Nile',
-  'Matthias Corvinus': 'Raven Banner',
   'Jadwiga': 'Saint',
   'Alexander': 'Short Life of Glory',
   'Lautaro': 'Spirit of Tucapel',
@@ -119,7 +124,15 @@ var leaderAgenda = {
   'Montezuma': 'Tlatoani',
   'Qin Shi Huang': 'Wall of 10,000 Li',
   'Peter': 'Westernizer',
-  'Gorgo': 'With Your Shield Or On It'
+  'Gorgo': 'With Your Shield Or On It',
+  'Eleanor of Aquitane': 'Angevin Empire',
+  'Kristina': 'Bibliophile',
+  'Wilfrid Laurier': 'Canadian Expeditionary Force',
+  'Kupe': 'Kaitiakitanga',
+  'Suleiman': 'Lawgiver',
+  'Mansa Musa': 'Lord of the Mines',
+  'Matthias Corvinus': 'Raven Banner',
+  'Dido': 'Sicilian Wars'
 }
 
 var agendaDescription = {
@@ -229,7 +242,28 @@ var agendaDescription = {
     Culture.`,
   'With Your Shield Or On It': `Never gives up items in a peace deal, and 
     likes civilizations who match that approach. Dislikes civilizations 
-    who have capitulated or who have never gone to war.`
+    who have capitulated or who have never gone to war.`,
+  'Angevin Empire': `Builds up the Population of her cities, and likes 
+    likes those whose nearby cities also have a high Population. Dislikes 
+    civilizations whose nearby cities have low Population.`,
+  'Bibliophile': `Tries to collect as many Great Works as possible and 
+    likes those who leave them to her. Dislikes civilizations with 
+    many Great Works.`,
+  'Canadian Expeditionary Force': `Responds to Emergencies whenever 
+    possible, and likes civilizations who do the same. Dislikes those 
+    that ignore Emergencies.`,
+  'Kaitiakitanga': `Tries to avoid contributing to climate change by not 
+    removing features, planting Woods, and founding National Parks, and 
+    likes those who do the same. Dislikes civilizations that show little 
+    concern for the environment.`,
+  'Lawgiver': `Tries to keep his cities happy and loyal, and likes those 
+    who do the same, especially if the have taken cities from other 
+    civilizations. Dislikes those who struggle with happiness and loyalty, 
+    or that own few conquered cities.`,
+  'Lord of the Mines': `Tries to build up Gold, and likes those that also 
+    focus on Gold. Dislikes civilizations with weak Gold output.`,
+  'Sicilian Wars': `Wants ot settle coastal cities, and likes civilizations 
+    that settle inland. Dislikes civilizations with many coastal cities.`
 }
 
 var hiddenAgendas = [
