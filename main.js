@@ -330,7 +330,9 @@ var hiddenAgendas = [
     behind technologically.`],
   ['Wonder Obsessed', `Likes civilizations not competing for wonders, 
     and builds wonders whenever possible. Dislikes losing a wonder to 
-    another civilization.`]
+    another civilization.`],
+  ['Flat Earther', `Wants to block humankind from circumnavigating the 
+    globe or going into space.`]
 ]
 
 var hiddenCount = []
