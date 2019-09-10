@@ -1,0 +1,44 @@
+Ally of Enkidu:Is easy to befriend, and likes civilizations who are his Declared Friends. Dislikes anyone denouncing or attacking his friends.
+An End to Suffering:Likes civilizations with many Holy Sites and with high average city Population. Dislikes civilizations lacking in either of these areas.
+Archipelagic State:Likes civilizations who avoid settling or conquering cities on small landmasses. Hates anyone with numerous cities on such islands.
+Ayyubid Dynasty:Wants his Worship building in as many cities as possible, and likes civilizations with it. Dislikes civilizations following other Religions or waging war on followers of his Religion.
+Backstab Averse:Likes civilizations who are willing to establish a long-term Alliance with her. Hates civilizations who backstab and declare Suprise Wars.
+Big Stick Policy:Likes peaceful Civilizations that have a city on his home continent. hates civilizations starting wars on his continent.
+Billionare:Likes civilizations that send Trade Routes to her cities. Dislikes civilizations who refrain from sending her Trade Routes.
+Black Queen:Gains as many Spies and as much diplomatic access as possible, and likes those who do the same. Dislikes civilizations that ignore espionage activities and have little diplomatic access.
+Bushido:Likes civilizations that have a strong military and Faith and Culture output. Dislikes civilizations that are strong in military but weak in Faith or Culture.
+Cheomseongdae:Focuses on building up Science, and respects civilizations who do the same. Dislikes civilizations with a weak Science output.
+City Planner:Tries to keep the maximum number of districts in each city and likes civilizations who match that approach. Dislikes civilizations that don't build as many districts as possible in their cities.
+Counter Reformer:Likes civilizations who follow the same Religion, and wants his cities to all follow the same Religion. Hates anyone trying to spread their Religion into his empire.
+Delian League:Likes civilizations that aren't competing for the same city-state allegiance. Dislikes civilizations that are directly competing for city-state allegiance.
+Enthusiastic Disciple:Likes civilizations that bring Religion to the Kongo. Dislikes civilizations that have founded a Religion but not brought it to a Kongolese city.
+Flower of Scotland:Will never attack his neighboring civilizations unless they break a promise to him, and dislikes anyone waging war on them. Likes civilizations not at war with his neighbors.
+Horn, Chest, Loins:Tries to form as many Corps and Armies as possible, and likes those who follow his lead. Dislikes civilizations with few Corps and Armies.
+Horse Lord:Builds a strong cavalry force, and likes those who do not compete in cavalry. Dislikes civilizations who rival him in cavalry strength.
+Iron Confederacy:Tries to establish as many Alliances as possible, and likes civilizations that do the same. Dislikes civilizations that don\'t establish Alliances.
+Iron Crown:Will try to conquer city-states, and likes civilizations who do not associate with them. Dislikes Suzerains of city-states, or civilizations who have conquered city-states.
+Last Viking King:Builds a strong navy, and likes civilizations who do the same. Dislikes civilizations with a weak navy.
+Maurya Empire:Dislikes civilizations that have cities close to his borders and will try to conquer them. Likes civilizations that are not his neighbors.
+Narikala Fortress:Tries to put high level Walls around her cities and respects civilizations that do the same. Dislikes civilizations that fail to fortify their cities.
+Opportunist:Will often declare Suprise Wars, and likes civilizations that do the same. Dislikes civilizations who do not use Suprise War declarations.
+Optimus Princeps:Tries to include as much territory as possible in his empire, and respects those who do the same. Dislikes civilizations that control little territory.
+Patron of the Arts:Likes civilizations who are not competing for Great People, and will recruit Great People whenever possible. Dislikes civilizations with more Great People than him.
+Peacekeeper:Never declares wars for which he can be branded a warmonger, and will try to befriend those who maintain the peace. Hates warmongers.
+Perpetually on Guard:Forms Defensive Pacts with friends and likes civilizations that liberate cities. Dislikes civilizations that are occupying enemy cities.
+Queen of the Nile:Likes civilizations with powerful militaries, and will try to ally with them to avoid conflict. Dislikes civilizations with weak militaries.
+Raven Banner:Levies troops from city-states. Likes civilizations that also use city-state troops, dislikes those that shun such mercenaries.
+Saint:Focuses on building up Faith, and likes civilizations who do the same. Dislikes civilizations with a weak Faith output.
+Short Life of Glory:Likes civilizations at war with powers other than Macedon. Has disdain for civilizations at peace.
+Spirit of Tucapel:Tries to maintain a high degree of loyalty in his cities, and respects civilizations who do the same. Dislikes civilizations that fail to maintain the loyalty of their cities.
+Sun Never Sets:Likes civilizations on her continent, and will try to expand to all continents. Dislikes civilizations on continents where she has no city.
+Tlatoani:Likes civilizations who have the same Luxury resources as he does, and will try to collect every Luxury resource available. Dislikes civilizations who have a new Luxury resource he has not yet collected.
+Wall of 10,000 Li:Builds wonders whenever possible, and likes civilizations not competing for wonders. Dislikes civilizations with more wonders than him.
+Westernizer:Likes civilizations that are ahead of him in Science and Culture. Dislikes civilizations that are lagging in Science and Culture.
+With Your Shield Or On It:Never gives up items in a peace deal, and likes civilizations who match that approach. Dislikes civilizations who have capitulated or who have never gone to war.
+Angevin Empire:Builds up the Population of her cities, and likes likes those whose nearby cities also have a high Population. Dislikes civilizations whose nearby cities have low Population.
+Bibliophile:Tries to collect as many Great Works as possible and likes those who leave them to her. Dislikes civilizations with many Great Works.
+Canadian Expeditionary Force:Responds to Emergencies whenever possible, and likes civilizations who do the same. Dislikes those that ignore Emergencies.
+Kaitiakitanga:Tries to avoid contributing to climate change by not removing features, planting Woods, and founding National Parks, and likes those who do the same. Dislikes civilizations that show little concern for the environment.
+Lawgiver:Tries to keep his cities happy and loyal, and likes those who do the same, especially if the have taken cities from other civilizations. Dislikes those who struggle with happiness and loyalty, or that own few conquered cities.
+Lord of the Mines:Tries to build up Gold, and likes those that also focus on Gold. Dislikes civilizations with weak Gold output.
+Sicilian Wars:Wants ot settle coastal cities, and likes civilizations that settle inland. Dislikes civilizations with many coastal cities
