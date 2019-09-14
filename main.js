@@ -1,18 +1,22 @@
+// Fills in the leader's agenda
 function leaderAgendaFill(a_name, a_title, a_text) {
   $('#leader-name').text(a_name)
   $('#leader-agenda').text("Agenda: " + a_title) 
   $('#leader-agenda-text').text(a_text)
 }
 
+// Puts the hidden agenda text on the page
 function hiddenAgendaFill(a_title, a_text) {
   $('#hidden-agenda').text("Agenda: " + a_title)
   $('#hidden-agenda-text').text(a_text)
 }
 
+// Puts the randomly chosen leader's name on the page
 function randomLeaderFill(name) {
   $('#random-leader-name').text(name)
 }
 
+// Matches substrings for predictive list of leaders
 var substringMatcher = function(strs) {
   return function findMatches(q, cb) {
     var matches, substringRegex
@@ -37,11 +41,12 @@ var substringMatcher = function(strs) {
     {
       leaderAgendaFill('', '','')
     }
-
     cb(matches)
   };
 };
 
+// ToDo: split this off in its own file, as well as the other lists below. Hardcoding in here
+// seems silly, lets just read in text files and parse them to our liking.
 var leaders = [
   'Alexander',
   'Amanitore',
@@ -342,32 +347,14 @@ for (var i = 0; i < hiddenAgendas.length; i++)
   hiddenCount.push(i)
 }
 
-console.log(hiddenCount)
+//console.log(hiddenCount)
 
+// messy way to handle leaders with special agenda possibilities
 var specialAgendaList = {
   'Theodore Roosevelt': [[9], hiddenCount, hiddenCount],
-  'Catherine de Medici': [
-    [13],
-    [13],
-    [13],
-    hiddenCount,
-    hiddenCount,
-    hiddenCount,
-    hiddenCount,
-    hiddenCount,
-    hiddenCount,
-    hiddenCount,
-    hiddenCount,
-    hiddenCount,
-    hiddenCount,
-    hiddenCount,
-    hiddenCount,
-    hiddenCount,
-    hiddenCount,
-    hiddenCount,
-    hiddenCount,
-    hiddenCount
-    ],
+  'Catherine de Medici': [[13], [13], [13], hiddenCount, hiddenCount, hiddenCount, hiddenCount,
+    hiddenCount, hiddenCount, hiddenCount, hiddenCount, hiddenCount, hiddenCount, hiddenCount,
+    hiddenCount, hiddenCount, hiddenCount, hiddenCount, hiddenCount, hiddenCount],
   'Gandhi': [[18], [18], [18], [18], [18], [18], [18], [20], [20], hiddenCount],
   'Gorgo, Peter, Philip II': [[22], hiddenCount, hiddenCount, hiddenCount, hiddenCount,
     hiddenCount, hiddenCount, hiddenCount, hiddenCount, hiddenCount],
@@ -375,27 +362,26 @@ var specialAgendaList = {
     hiddenCount, hiddenCount, hiddenCount, hiddenCount, hiddenCount]
 }
 
+// Creates the various buttons people use to select the leaders they want
 $(document).ready(function() {
   $.each(leaders, function() {
-    // if (this != '')
-    // {
     var button = `<label class="btn btn-outline-danger">
               <input type="checkbox" checked autocomplete="off">` + this +'</label>'
     $('#leader-buttons').append(button)
-    // }
   })
 })
 
+// This is the action that selects which leader they get
 $('#random-leader-select-btn').click(function() {
   var leaderPossibility = []
   $('#leader-buttons .active').each(function() {
     leaderPossibility.push($(this).text().substring(1).trim())
   })
-  console.log(leaderPossibility)
   randomLeaderFill(leaderPossibility[Math.floor(Math.random() * leaderPossibility.length)])
 })
 
-
+// This gives them a random hidden agenda, takes into account special leaders who have
+// a greater or lesser chance of getting certain agendas
 $('#hidden-agenda-btn').click(function() {
   var agenda_list
   var name = $('#leader-name').text()
@@ -427,16 +413,16 @@ $('#hidden-agenda-btn').click(function() {
   {
     agenda_list = hiddenCount
   }
-  // console.log(agenda_list)
   var rand = Math.ceil(Math.random() * agenda_list.length) - 1
-  // console.log(rand)
   hiddenAgendaFill(hiddenAgendas[agenda_list[rand]][0], hiddenAgendas[agenda_list[rand]][1])
 })
 
+// Fills in the leaders name correctly when they click it from the predictive menu
 $('.typeahead').on('typeahead:selected', function(evt, item) {
   leaderAgendaFill(item, leaderAgenda[item], agendaDescription[leaderAgenda[item]])
 })
 
+// Typeahead predictive text for leader names
 $('#civ-leaders .typeahead').typeahead({
   hint: true,
   highlight: true,
