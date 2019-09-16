@@ -3,7 +3,7 @@ Jayavarman VII:An End to Suffering
 Gitarja:Archipelagic State
 Saladin:Ayyubid Dynasty
 Tomyris:Backstab Averse
-Theodore Roosevelt:Big Stick Policy
+Teddy Roosevelt:Big Stick Policy
 Wilhelmina:Billionare
 Catherine de Medici:Black Queen
 Hojo Tokimune:Bushido
@@ -42,3 +42,4 @@ Suleiman:Lawgiver
 Mansa Musa:Lord of the Mines
 Matthias Corvinus:Raven Banner
 Dido:Sicilian Wars
+Pachacuti:Sapa Inca

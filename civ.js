@@ -48,6 +48,27 @@ var substringMatcher = function(strs) {
   };
 };
 
+var xmlhttp = new XMLHttpRequest();
+var url = 'leaderData.json'
+var bigLeaderData
+function myFunc(myArr)
+{
+  bigLeaderData = myArr
+}
+
+xmlhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200)
+  {
+    var myArr = JSON.parse(this.responseText)
+    myFunc(myArr)
+  }
+}
+
+xmlhttp.open("GET", url, true)
+xmlhttp.send()
+
+
+
 // ToDo: split this off in its own file, as well as the other lists below. Hardcoding in here
 // seems silly, lets just read in text files and parse them to our liking.
 var leaders = [
@@ -82,12 +103,12 @@ var leaders = [
   'Seondeok',
   'Shaka',
   'Tamar',
-  'Theodore Roosevelt',
+  'Teddy Roosevelt',
   'Tomyris',
   'Trajan',
   'Victoria',
   'Wilhelmina',
-  'Eleanor of Aquitane',
+  'Eleanor of Aquitaine',
   'Kristina',
   'Wilfrid Laurier',
   'Kupe',
@@ -102,7 +123,7 @@ var leaderAgenda = {
   'Gitarja': 'Archipelagic State',
   'Saladin': 'Ayyubid Dynasty',
   'Tomyris': 'Backstab Averse',
-  'Theodore Roosevelt': 'Big Stick Policy',
+  'Teddy Roosevelt': 'Big Stick Policy',
   'Wilhelmina': 'Billionare',
   'Catherine de Medici': 'Black Queen',
   'Hojo Tokimune': 'Bushido',
@@ -133,7 +154,7 @@ var leaderAgenda = {
   'Qin Shi Huang': 'Wall of 10,000 Li',
   'Peter': 'Westernizer',
   'Gorgo': 'With Your Shield Or On It',
-  'Eleanor of Aquitane': 'Angevin Empire',
+  'Eleanor of Aquitaine': 'Angevin Empire',
   'Kristina': 'Bibliophile',
   'Wilfrid Laurier': 'Canadian Expeditionary Force',
   'Kupe': 'Kaitiakitanga',
@@ -368,7 +389,10 @@ var specialAgendaList = {
 // Creates the various buttons people use to select the leaders they want
 $(document).ready(function() {
   $.each(leaders, function() {
-    var button = `<button class="btn btn-outline-danger leader-button">` + this + `</button>`
+    var button = `<button class="btn btn-outline-danger leader-button"><div class="container"><div class="row">
+                  <div class="col"><img src="assets/civ_assets/leader-portraits/` + this + 
+                  `.png" style="height: 50px; width: 50px;"></div><div class="col"><div class="row">` + this +
+                  `</div><div class="row">Country</div></div></div></div></button>`
               // <input class='leader-check' type="checkbox" checked autocomplete="off">` + this +'</button>'
     $('#leader-buttons').append(button)
   })
@@ -380,6 +404,8 @@ $(document).ready(function() {
     $(this).hasClass('active') ? numSel-- : numSel++
     $('#random-leader-select-btn').prop('disabled', numSel < 1)
   })
+
+  console.log(bigLeaderData)
 })
 
 // This is the action that selects which leader they get

@@ -42,3 +42,4 @@ Kaitiakitanga:Tries to avoid contributing to climate change by not removing feat
 Lawgiver:Tries to keep his cities happy and loyal, and likes those who do the same, especially if the have taken cities from other civilizations. Dislikes those who struggle with happiness and loyalty, or that own few conquered cities.
 Lord of the Mines:Tries to build up Gold, and likes those that also focus on Gold. Dislikes civilizations with weak Gold output.
 Sicilian Wars:Wants ot settle coastal cities, and likes civilizations that settle inland. Dislikes civilizations with many coastal cities
+Sapa Inca:Tries to settle near Mountains, and likes those who leave those areas to him. Dislikes civilizations that also settle near Mountains.
