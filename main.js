@@ -1,3 +1,5 @@
+var numSel = 0
+
 // Fills in the leader's agenda
 function leaderAgendaFill(a_name, a_title, a_text) {
   $('#leader-name').text(a_name)
@@ -13,6 +15,7 @@ function hiddenAgendaFill(a_title, a_text) {
 
 // Puts the randomly chosen leader's name on the page
 function randomLeaderFill(name) {
+  $('#random-leader-name').text('')
   $('#random-leader-name').text(name)
 }
 
@@ -365,9 +368,17 @@ var specialAgendaList = {
 // Creates the various buttons people use to select the leaders they want
 $(document).ready(function() {
   $.each(leaders, function() {
-    var button = `<label class="btn btn-outline-danger">
-              <input type="checkbox" checked autocomplete="off">` + this +'</label>'
+    var button = `<button class="btn btn-outline-danger leader-button">` + this + `</button>`
+              // <input class='leader-check' type="checkbox" checked autocomplete="off">` + this +'</button>'
     $('#leader-buttons').append(button)
+  })
+
+  // Here we make it so the "pick a leader for me" button only works when
+  // some number of options are selected
+  numSel = 0
+  $('.leader-button').click(function() {
+    $(this).hasClass('active') ? numSel-- : numSel++
+    $('#random-leader-select-btn').prop('disabled', numSel < 1)
   })
 })
 
@@ -375,7 +386,7 @@ $(document).ready(function() {
 $('#random-leader-select-btn').click(function() {
   var leaderPossibility = []
   $('#leader-buttons .active').each(function() {
-    leaderPossibility.push($(this).text().substring(1).trim())
+    leaderPossibility.push($(this).text().substring(0).trim())
   })
   randomLeaderFill(leaderPossibility[Math.floor(Math.random() * leaderPossibility.length)])
 })
