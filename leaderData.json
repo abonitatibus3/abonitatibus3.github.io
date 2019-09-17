@@ -50,14 +50,7 @@
   },
   {
     "Leader": "Eleanor of Aquitaine",
-    "Civ": "English",
-    "Leader Tags": "Economy",
-    "Leader Bonus": "Court of Love:Great Works in Eleanor's cities each cause -1 Loyalty per turn in foreign cities within 9 tiles. A city that leaves another civilization due to a loss of Loyalty and is currently receiving the most Loyalty per turn from Eleanor's civilization skips the Free City step to join this civilization.",
-    "Leader Agenda": "Angevin Empire:Builds up the Population of her cities, and likes likes those whose nearby cities also have a high Population. Dislikes civilizations whose nearby cities have low Population."
-  },
-  {
-    "Leader": "Eleanor of Aquitaine",
-    "Civ": "French",
+    "Civ": "English, French",
     "Leader Tags": "Economy",
     "Leader Bonus": "Court of Love:Great Works in Eleanor's cities each cause -1 Loyalty per turn in foreign cities within 9 tiles. A city that leaves another civilization due to a loss of Loyalty and is currently receiving the most Loyalty per turn from Eleanor's civilization skips the Free City step to join this civilization.",
     "Leader Agenda": "Angevin Empire:Builds up the Population of her cities, and likes likes those whose nearby cities also have a high Population. Dislikes civilizations whose nearby cities have low Population."

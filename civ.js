@@ -401,14 +401,7 @@ var leaderData = [
   },
   {
     "Leader": "Eleanor of Aquitaine",
-    "Civ": "English",
-    "Leader Tags": "Economy",
-    "Leader Bonus": "Court of Love:Great Works in Eleanor's cities each cause -1 Loyalty per turn in foreign cities within 9 tiles. A city that leaves another civilization due to a loss of Loyalty and is currently receiving the most Loyalty per turn from Eleanor's civilization skips the Free City step to join this civilization.",
-    "Leader Agenda": "Angevin Empire:Builds up the Population of her cities, and likes likes those whose nearby cities also have a high Population. Dislikes civilizations whose nearby cities have low Population."
-  },
-  {
-    "Leader": "Eleanor of Aquitaine",
-    "Civ": "French",
+    "Civ": "English, French",
     "Leader Tags": "Economy",
     "Leader Bonus": "Court of Love:Great Works in Eleanor's cities each cause -1 Loyalty per turn in foreign cities within 9 tiles. A city that leaves another civilization due to a loss of Loyalty and is currently receiving the most Loyalty per turn from Eleanor's civilization skips the Free City step to join this civilization.",
     "Leader Agenda": "Angevin Empire:Builds up the Population of her cities, and likes likes those whose nearby cities also have a high Population. Dislikes civilizations whose nearby cities have low Population."
@@ -770,7 +763,7 @@ $(document).ready(function() {
   // Here we create all the buttons for the user to select their leaders
   $.each(leaderData, function(i, item) {
     var button = `<button onclick="buttonClick('` + item['Leader'] + `')" id="` + item['Leader'].replace(/\s+/g, '-') + `-button" 
-                  class="btn btn-outline-danger leader-button"><div class="container"><div class="row">
+                  class="btn btn-outline-success leader-button text-dark"><div class="container"><div class="row">
                   <div class="col"><img src="assets/civ_assets/leader-portraits/` + item['Leader'] + 
                   `.png" style="height: 50px; width: 50px;"></div><div class="col"><div class="row">` + item['Leader'] +
                   `</div><div class="row">\n` + item['Civ'] + `</div></div></div></div></button>`
