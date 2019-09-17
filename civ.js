@@ -5,14 +5,18 @@ var newSelected = []
 var newDeselected = []
 
 function pageUpdate() {
+  console.log(newSelected)
   for (var i = 0; i < newSelected.length; i++)
   {
     var idName = newSelected[i].replace(/\s+/g, '-')
     $('#' + idName + '-button').addClass('active')
+    $('#' + idName + '-button').prop('aria-pressed', true)
+    $().button('toggle')
   }
   for (var j = 0; j < newDeselected.length; j++)
   {
     $('#' + newDeselected[j].replace(/\s+/g, '-')  + '-button').removeClass('active')
+    $('#' + idName + '-button').prop('aria-pressed', false)
   }
   newSelected = []
   newDeselected = []
@@ -82,6 +86,7 @@ function buttonClick(name) {
     selected.push(name)
     newSelected.push(name)
   }
+  pageUpdate()
 }
 
 // Matches substrings for predictive list of leaders
@@ -763,33 +768,25 @@ $(document).ready(function() {
   // Here we create all the buttons for the user to select their leaders
   $.each(leaderData, function(i, item) {
     var button = `<button onclick="buttonClick('` + item['Leader'] + `')" id="` + item['Leader'].replace(/\s+/g, '-') + `-button" 
-                  class="btn btn-outline-success leader-button text-dark"><div class="container"><div class="row">
+                  class="btn btn-outline-success leader-button text-dark" role="button" aria-pressed="false" data-toggle="button">
+                  <div class="container"><div class="row">
                   <div class="col"><img src="assets/civ_assets/leader-portraits/` + item['Leader'] + 
                   `.png" style="height: 50px; width: 50px;"></div><div class="col"><div class="row">` + item['Leader'] +
                   `</div><div class="row">\n` + item['Civ'] + `</div></div></div></div></button>`
               // <input class='leader-check' type="checkbox" checked autocomplete="off">` + this +'</button>'
     $('#leader-buttons').append(button)
   })
-
-  // Here we make it so the "pick a leader for me" button only works when
-  // some number of options are selected
-  // numSel = 0
-  // $('.leader-button').click(function() {
-  //   if ()
-  //   $(this).hasClass('active') ? numSel-- : numSel++
-  //   buttonCheck()
-  // })
 })
 
 
 // This is the action that selects which leader they get
 $('#random-leader-select-btn').click(function() {
-  var leaderPossibility = []
-  $('#leader-buttons .active').each(function() {
-    // console.log($(this))
-    leaderPossibility.push($(this).text().split('\n')[1].trim())
-  })
-  randomLeaderFill(leaderPossibility[Math.floor(Math.random() * leaderPossibility.length)])
+  // var leaderPossibility = []
+  // $('#leader-buttons .active').each(function() {
+  //   // console.log($(this))
+  //   leaderPossibility.push($(this).text().split('\n')[1].trim())
+  // })
+  randomLeaderFill(selected[Math.floor(Math.random() * selected.length)])
 })
 
 // This gives them a random hidden agenda, takes into account special leaders who have
