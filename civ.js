@@ -48,74 +48,60 @@ var substringMatcher = function(strs) {
   };
 };
 
-var xmlhttp = new XMLHttpRequest();
-var url = 'leaderData.json'
-var bigLeaderData
-function myFunc(myArr)
-{
-  bigLeaderData = myArr
-}
 
-xmlhttp.onreadystatechange = function() {
-  if (this.readyState == 4 && this.status == 200)
-  {
-    var myArr = JSON.parse(this.responseText)
-    myFunc(myArr)
-  }
-}
-
-xmlhttp.open("GET", url, true)
-xmlhttp.send()
 
 
 
 // ToDo: split this off in its own file, as well as the other lists below. Hardcoding in here
 // seems silly, lets just read in text files and parse them to our liking.
-var leaders = [
-  'Alexander',
-  'Amanitore',
-  'Catherine de Medici',
-  'Chandragupta',
-  'Cleopatra',
-  'Cyrus',
-  'Frederick Barbarossa',
-  'Gandhi',
-  'Genghis Khan',
-  'Gilgamesh',
-  'Gitarja',
-  'Gorgo',
-  'Harald Hardrada',
-  'Hojo Tokimune',
-  'Jadwiga',
-  'Jayavarman VII',
-  'John Curtin',
-  'Lautaro',
-  'Montezuma',
-  'Mvemba a Nzinga',
-  'Pedro II',
-  'Pericles',
-  'Peter',
-  'Philip II',
-  'Poundmaker',
-  'Qin Shi Huang',
-  'Robert the Bruce',
-  'Saladin',
-  'Seondeok',
-  'Shaka',
-  'Tamar',
-  'Teddy Roosevelt',
-  'Tomyris',
-  'Trajan',
-  'Victoria',
-  'Wilhelmina',
-  'Eleanor of Aquitaine',
-  'Kristina',
-  'Wilfrid Laurier',
-  'Kupe',
-  'Mansa Musa',
-  'Matthias Corvinus',
-  'Dido'
-  ]
+// Update: Turns out reading this all in and parsing it massively slows down the page.
+// gonna leave it here until I find out how to make it better.
+var leaders = {
+  'Alexander': 'Macedonian',
+  'Amanitore': 'Nubian',
+  'Catherine de Medici': 'French',
+  'Chandragupta': 'Indian',
+  'Cleopatra': 'Egyptian',
+  'Cyrus': 'Persian',
+  'Dido': 'Phoenician',
+  'Eleanor of Aquitaine': 'English, French',
+  'Frederick Barbarossa': 'German',
+  'Gandhi': 'Indian',
+  'Genghis Khan': 'Mongolian',
+  'Gilgamesh': 'Sumerian',
+  'Gitarja': 'Indonesian',
+  'Gorgo': 'Greek',
+  'Harald Hardrada': 'Norwegian',
+  'Hojo Tokimune': 'Japanese',
+  'Jadwiga': 'Polish',
+  'Jayavarman VII': 'Khmer',
+  'John Curtin': 'Australian',
+  'Kristina': 'Swedish',
+  'Kupe': 'Māori',
+  'Lautaro': 'Mapuche',
+  'Mansa Musa': 'Mali',
+  'Matthias Corvinus': 'Hungarian',
+  'Montezuma': 'Aztec',
+  'Mvemba a Nzinga': 'Kongolese',
+  'Pachacuti': 'Incan',
+  'Pedro II': 'Brazilian',
+  'Pericles': 'Greek',
+  'Peter': 'Russian',
+  'Philip II': 'Spanish',
+  'Poundmaker': 'Cree',
+  'Qin Shi Huang': 'Chinese',
+  'Robert the Bruce': 'Scottish',
+  'Saladin': 'Arabian',
+  'Seondeok': 'Korean',
+  'Shaka': 'Zulu',
+  'Tamar': 'Georgian',
+  'Teddy Roosevelt': 'American',
+  'Tomyris': 'Scythian',
+  'Trajan': 'Roman',
+  'Victoria': 'British',
+  'Wilhelmina': 'Dutch',
+  'Wilfrid Laurier': 'Canadian',
+  }
 
 var leaderAgenda = {
   'Gilgamesh': 'Ally of Enkidu',
@@ -161,7 +147,8 @@ var leaderAgenda = {
   'Suleiman': 'Lawgiver',
   'Mansa Musa': 'Lord of the Mines',
   'Matthias Corvinus': 'Raven Banner',
-  'Dido': 'Sicilian Wars'
+  'Dido': 'Sicilian Wars',
+  'Pachacuti': 'Qhapaq Ñan'
 }
 
 var agendaDescription = {
@@ -292,7 +279,9 @@ var agendaDescription = {
   'Lord of the Mines': `Tries to build up Gold, and likes those that also 
     focus on Gold. Dislikes civilizations with weak Gold output.`,
   'Sicilian Wars': `Wants ot settle coastal cities, and likes civilizations 
-    that settle inland. Dislikes civilizations with many coastal cities.`
+    that settle inland. Dislikes civilizations with many coastal cities.`,
+  'Qhapaq Ñan': `Domestic Trade Routes gain +1 Food for every Mountain tile in 
+    the origin city. Gain the Qhapaq Ñan unique improvement with Foreign Trade.`
 }
 
 var hiddenAgendas = [
@@ -388,11 +377,12 @@ var specialAgendaList = {
 
 // Creates the various buttons people use to select the leaders they want
 $(document).ready(function() {
-  $.each(leaders, function() {
+  // Here we create all the buttons for the user to select their leaders
+  $.each(Object.keys(leaders), function() {
     var button = `<button class="btn btn-outline-danger leader-button"><div class="container"><div class="row">
                   <div class="col"><img src="assets/civ_assets/leader-portraits/` + this + 
                   `.png" style="height: 50px; width: 50px;"></div><div class="col"><div class="row">` + this +
-                  `</div><div class="row">Country</div></div></div></div></button>`
+                  `</div><div class="row">\n` + leaders[this] + `</div></div></div></div></button>`
               // <input class='leader-check' type="checkbox" checked autocomplete="off">` + this +'</button>'
     $('#leader-buttons').append(button)
   })
@@ -404,15 +394,14 @@ $(document).ready(function() {
     $(this).hasClass('active') ? numSel-- : numSel++
     $('#random-leader-select-btn').prop('disabled', numSel < 1)
   })
-
-  console.log(bigLeaderData)
 })
 
 // This is the action that selects which leader they get
 $('#random-leader-select-btn').click(function() {
   var leaderPossibility = []
   $('#leader-buttons .active').each(function() {
-    leaderPossibility.push($(this).text().substring(0).trim())
+    // console.log($(this))
+    leaderPossibility.push($(this).text().split('\n')[1].trim())
   })
   randomLeaderFill(leaderPossibility[Math.floor(Math.random() * leaderPossibility.length)])
 })
@@ -467,5 +456,5 @@ $('#civ-leaders .typeahead').typeahead({
 },
 {
   name: 'leaders',
-  source: substringMatcher(leaders)
+  source: substringMatcher(Object.keys(leaders))
 })
