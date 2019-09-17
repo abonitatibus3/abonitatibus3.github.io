@@ -776,7 +776,16 @@ $(document).ready(function() {
               // <input class='leader-check' type="checkbox" checked autocomplete="off">` + this +'</button>'
     $('#leader-buttons').append(button)
   })
+
+  $("button").on("touchstart", function() {
+    $(this).removeClass("mobileHoverFix")
+  })
+  $("button").on("touchend", function() {
+    $(this).addClass("mobileHoverFix")
+  })
 })
+
+
 
 
 // This is the action that selects which leader they get
