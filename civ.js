@@ -768,11 +768,19 @@ $(document).ready(function() {
   // Here we create all the buttons for the user to select their leaders
   $.each(leaderData, function(i, item) {
     var button = `<button onclick="buttonClick('` + item['Leader'] + `')" id="` + item['Leader'].replace(/\s+/g, '-') + `-button" 
-                  class="btn btn-outline-success leader-button text-dark mq4-hover-shim" role="button" aria-pressed="false" data-toggle="button">
-                  <div class="container"><div class="row">
-                  <div class="col"><img src="assets/civ_assets/leader-portraits/` + item['Leader'] + 
-                  `.png" style="height: 50px; width: 50px;"></div><div class="col"><div class="row">` + item['Leader'] +
-                  `</div><div class="row">\n` + item['Civ'] + `</div></div></div></div></button>`
+                  class="btn btn-outline-success leader-button text-dark text-left pl-0 pr-0 col-12 col-sm-6 col-md-4 col-lg-4 col-xl-2" role="button" type="button" data-toggle="button">
+                    <div class="container pl-1">
+                      <div class="row">
+                        <div class="col-2 col-sm-3 col-lg-4 mr-0">
+                          <img src="assets/civ_assets/leader-portraits/` + item['Leader'] + `.png" style="height: 50px; width: 50px;">
+                        </div>
+                        <div class="col-10 col-sm-9 col-lg-8 ml-0">
+                          <div class="row">` + item['Leader'] + `</div>
+                          <div class="row">\n` + item['Civ'] + `</div>
+                        </div>
+                      </div>
+                    </div>
+                  </button>`
               // <input class='leader-check' type="checkbox" checked autocomplete="off">` + this +'</button>'
     $('#leader-buttons').append(button)
   })
